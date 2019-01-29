@@ -5,41 +5,44 @@ weight = input()
 print "Payload weight? (g)"
 payload = input()
 print "Target burst altitude? (m)"
-x = input()
+t = input()
 # x = target burst altitude
 print "Helium volume at launch ? (m^3)"
 h = input()
 # h = amount of helium at launch, in m^3 (for us, h = 2.352)
 print "Masse=", weight, "g"
 print "Payload=", payload, "g"
-print "Target Burst Altitude=", x, "m"
+print "Target Burst Altitude=", t, "m"
 print "Helium volume at launch=", h, "m^3"
 if weight == 300:
     # y = burst diameter
     y = 4.3
-    print "Burst diameter = 4.3m"
+    print "Burst diameter = 4.3 m"
 elif weight == 350:
     y = 4.8
-    print "Burst diameter = 4.8m"
+    print "Burst diameter = 4.8 m"
 elif weight == 500:
     y = 5.8
-    print "Burst diameter = 5.8m"
+    print "Burst diameter = 5.8 m"
 elif weight == 600:
     y = 6.5
-    print "Burst diameter = 6.5m"
+    print "Burst diameter = 6.5 m"
 # optional equation : y = 7*(10^-3)x + 2.07
 if weight < 600:
     cd = 0.25
 else:
     cd = 0.3
 
+d = ((h/(4/3))/math.pi)**(1/3)
+# d = launch diameter (m)
+print "Launch Diameter=", d, "m"
 v = h
 # v = volume at launch, in m^3
 ad = 1.205
 # ad = air density at 0C (constant)
 he = 0.1786
 #he = helium density
-ar =
+ar = math.pi*(d/2)**2
 # ar = area
 g = v*(ad-he)
 # g = gross lift
@@ -52,3 +55,4 @@ fn = fg*9.81
 print "Free Lift=", fn, "N"
 a = math.sqrt(fn/(0.5*cd*ad*ar))
 print "Ascent rate=", a, "m/sec"
+# DEBUG:
