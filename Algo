@@ -55,4 +55,3 @@ fn = fg*9.81
 print "Free Lift=", fn, "N"
 a = math.sqrt(fn/(0.5*cd*ad*ar))
 print "Ascent rate=", a, "m/sec"
-# DEBUG:
